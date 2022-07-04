@@ -150,7 +150,7 @@ def main_loop():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit(0)
-            elif event.type == pygame.MOUSEBUTTONDOWN:
+            elif event.type == pygame.MOUSEBUTTONDOWN and not game_over_text:
                 player_move()
             elif event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE and game_over_text:
                 game_over_text = ''
@@ -198,12 +198,13 @@ def draw_field():
                 pygame.draw.circle(screen, BLACK, (x+SIZE_BLOCK//2, y+SIZE_BLOCK//2), SIZE_BLOCK//2-5, 2)
 
     if game_over_text:
-        screen.fill(WHITE)
+        # screen.fill(WHITE)
         font = pygame.font.SysFont('stxingkai', 30)
         text = font.render(game_over_text + " Press space to try again", True, BLACK)
         text_rect = text.get_rect()
         text_x = screen.get_width() / 2 - text_rect.width / 2
         text_y = screen.get_height() / 2 - text_rect.height / 2
+        pygame.draw.rect(screen, WHITE, (text_x, text_y, text_rect.width, text_rect.height))
         screen.blit(text, [text_x, text_y])
 
     pygame.display.update()
