@@ -133,10 +133,10 @@ def computer_move():
                 game_over_text = "You win! Congrats!"
                 break
         else:
+            available_cells.remove(coord)
             if len(available_cells) == 0:
                 game_over_text = "Draw! Friendship wins!"
             else:
-                available_cells.remove(coord)
                 break
 
 
@@ -177,6 +177,7 @@ def player_move():
         matrix[row][col] = 'x'
         if check_loose(matrix, 'x', (row, col)):
             game_over_text = "You loose! See you next time!"
+            return
         computer_move()
 
 

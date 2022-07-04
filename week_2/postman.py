@@ -54,4 +54,4 @@ if __name__ == "__main__":
     print(START_POINT, end='')
     for point in route:
         print(f"-> {point}[{path_distance[point]}]", end='')
-    print(f"-> {START_POINT}[{path_distance[START_POINT]}] = {path_distance[route[-1]]}")
+    print(f"-> {START_POINT}[{path_distance[START_POINT]}] = {path_distance[START_POINT]}")
