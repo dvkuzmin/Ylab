@@ -136,6 +136,7 @@ def computer_move():
             available_cells.remove(coord)
             if len(available_cells) == 0:
                 game_over_text = "Draw! Friendship wins!"
+                break
             else:
                 break
 
